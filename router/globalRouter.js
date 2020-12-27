@@ -1,11 +1,9 @@
 import express from "express";
+import { route } from "../routes"; 
+import { home } from "../controller/userController";
 
 const globalRouter = express.Router();
 
-globalRouter.get('/', (req, res, next) => {
-    res.send("Hi");
-    console.log("what the what global router / ");
-    /*res.render("index", )*/
-});
+globalRouter.get('/', home);
 
 export default globalRouter;
