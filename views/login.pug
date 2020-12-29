@@ -1,9 +1,8 @@
 extends layouts/index.pug
 
 block content
-    form(action="" method="post") 
-        div(class="imgcontainer") 
-
+    form(action="" method="post")
+        div(class="imgcontainer")
         div(class="container")
             label
                 b Username
@@ -16,10 +15,9 @@ block content
                 input(type="checkbox" checked="checked" name="remember")
                 p Remember me
                 
-
         div(class="container" style="background-color:#f1f1f1")
             button(type="button" class="cancelbtn" onClick="location.href='http://localhost:3000/'") Cancel
-            span(class="psw") Forget 
+            span(class="psw") Forget
                 a(href="#") password?
     button
         a(href="/auth/facebook")
