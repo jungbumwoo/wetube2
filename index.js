@@ -3,8 +3,8 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import helmet from "helmet";
-import mongoose from "mongoose";
 
+import "./db";
 import globalRouter from "./router/globalRouter";
 import userRouter from "./router/userRouter";
 import { route } from "./routes";
