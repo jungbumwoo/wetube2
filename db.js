@@ -4,6 +4,7 @@ dotenv.config();
 
 mongoose.connect(process.env.MONGOOSE_URL, { useNewUrlParser: true });
 
+/*
 const kittySchema = new mongoose.Schema({
     name: String
 });
@@ -30,13 +31,13 @@ mimi.save((err, fluffy) => {
 })
 
 Kitten.find((err, kittens) => {
-    /* 와 여기 kitten이 아니라 kitten s인거봡.. 
+    와 여기 kitten이 아니라 kitten s인거봡.. 
     collections에서도 kitten이 아니라 kittens라고 뜨네 ㄷㄷ
-    */
+    
     if (err) return console.log(err);
     console.log(kittens);
 })
-
+*/
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: jb.. '));
