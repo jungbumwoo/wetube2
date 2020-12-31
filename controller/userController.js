@@ -28,7 +28,7 @@ export const postLogin = (req, res) => {
             res.redirect("/");
         }
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 
 };
