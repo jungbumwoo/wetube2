@@ -3,6 +3,7 @@ const HOME = "/";
 /*user*/
 const PROFILE = "/profile"
 const LOGIN = "/login"
+const LOGIN2 = "/login2"
 const USER = "/user"
 const SIGNUP = "/signup"
 /**/
@@ -13,5 +14,6 @@ export const route = {
     user: USER,
     profile: PROFILE,
     login: LOGIN,
+    login2: LOGIN2,
     signup: SIGNUP
 }

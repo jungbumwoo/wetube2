@@ -1,5 +1,6 @@
 import User from "../models";
 
+
 export const home = (req, res) => {
     res.render("home");
 };
@@ -33,10 +34,18 @@ export const postLogin = (req, res) => {
 
 };
 
+export const login2 = (req, res) => {
+    res.render("login2");
+};
+
+export const postLogin2 = (req, res) => {
+    console.log("postLogin2");
+}
+
 export const signup = (req, res) => {
     res.render("signup");
 };
 
 export const postSignup = (req, res) => {
-    console.log(req);
+    console.log(req.body);
 };

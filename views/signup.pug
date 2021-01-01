@@ -1,6 +1,24 @@
 extends layouts/index.pug
 
 block content
-    button(onclick="document.getElementById('id01').style.display='block'") Sign Up   
-    div(class="modal", id="id01")
+    form(action="/user/signup" method="post")
+        div(class="imgcontainer")
+        div(class="container")
+            label
+                b Username
+            input(type="text" placeholder="Enter Username" name="username" required)
+            label(for="psw")
+                b Password
+            input(type="password" placeholder="Enter Password" name="password" required)
+            button(type="submit") Sign Up
+                
+    button
+        a(href="/auth/facebook")
+            span
+                |Facebook Login
+    button
+        a(href="/auth/github")
+            span
+                |Github Login
+
         
