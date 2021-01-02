@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import passportLocalMongoose from "passport-local-mongoose";
 
 const userSchema = new mongoose.Schema({
     username: String,
@@ -8,7 +9,17 @@ const userSchema = new mongoose.Schema({
     info: String
 });
 
+userSchema.plugin(passportLocalMongoose);
+userSchema.methods.comparePassword = function(inputPassword, cb) {
+    if (inputPassword === this.password) {
+        cb(null, true);
+    } else {
+        cb('error');
+    }
+};
+
 const model = mongoose.model('User', userSchema);
-console.log(model);
+
+
 
 export default model;

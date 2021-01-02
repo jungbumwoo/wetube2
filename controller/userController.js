@@ -1,6 +1,5 @@
 import User from "../models";
 
-
 export const home = (req, res) => {
     res.render("home");
 };
@@ -10,8 +9,7 @@ export const login = (req, res) => {
 };
 
 export const postLogin = (req, res) => {
-    console.log(req.body.uname);
-    console.log(req.body.pwd);
+
 };
 
 export const login2 = (req, res) => {
@@ -26,6 +24,22 @@ export const signup = (req, res) => {
     res.render("signup");
 };
 
-export const postSignup = (req, res) => {
-    console.log(req.body);
+export const postSignup = async(req, res) => {
+    const { body : { username, password, password2 }} = req;
+    console.log(username, password, password2);
+    if ( password != password2) {
+        console.log("password and password2 is not correct");
+        res.resdirect("/user/signup");
+    } else {
+        try {
+            let newUser = { username }
+            User.register(newUser, password);
+            console.log("여기여기 try");
+            res.redirect("/");
+        } catch(err) {
+            console.log(" 여기 catch err");
+            console.log(err);
+            res.redirect("/user/signup");
+        }
+    }
 };
