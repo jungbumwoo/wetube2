@@ -11,6 +11,8 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.methods.comparePassword = function(inputPassword, cb) {
+    console.log(inputPassword);
+    console.log(this.password);
     if (inputPassword === this.password) {
         cb(null, true);
     } else {

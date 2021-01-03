@@ -37,8 +37,6 @@ export const postSignup = async(req, res) => {
             console.log("여기여기 try");
             res.redirect("/");
         } catch(err) {
-            console.log(" 여기 catch err");
-            console.log(err);
             res.redirect("/user/signup");
         }
     }
