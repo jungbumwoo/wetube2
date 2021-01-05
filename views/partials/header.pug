@@ -2,3 +2,15 @@ header
     title Wetube
     h3 
         a(href="/") Wetube
+    .header__column
+        ul
+            if (!user)
+                li
+                    a(href="") SingIn
+                li
+                    a(href="")
+            else
+                li
+                    a(href="") Profile
+                li
+                    a(href=route.logout) Logout

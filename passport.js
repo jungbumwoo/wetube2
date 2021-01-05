@@ -14,10 +14,27 @@ passport.use(new FacebookStrategy({
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: process.env.FACEBOOK_CALLBACK_URL
     },
-    function(accessToken, refreshToken, profile, cb) {
-        User.findOrCreate({ facebookId: profile.id }, function(err, user) {
-            return cb(err, user);
-        });
+    async function(accessToken, refreshToken, profile, cb) {
+        console.log('passport.js 18');
+        console.log(profile);
+        let { _json : { name, id }} = profile;
+        try {
+            let isUser = await User.findOne({ facebookId: id});
+            // 이미 유저인지 체크하고
+            if (isUser) {
+                // 유저면 로그인시키고
+                return cb(null, isUser);
+            } else {
+                // 아니면 가입시키기
+                let newUser = await User.create({
+                    username: name,
+                    facebookId: id
+                });
+                return cb(null, newUser);
+            };
+        } catch(err) {
+            console.log(err);
+        };
     }
 ));
 
@@ -27,7 +44,7 @@ passport.use(new GitHubStrategy({
     callbackURL: `http://localhost:3000${process.env.GITHUB_CALLBACK_URL}`
     },
     async function (accessToken, refreshToken, profile, cb) {
-        let { email } = profile;
+        let { email, username } = profile;
         try {
             // 이미 유저인지 체크
             let isUser = await User.findOne({ email });
@@ -38,7 +55,7 @@ passport.use(new GitHubStrategy({
                 return cb(null, isUser);
             } else {
                 // 이미 유저 아니면 가입 후 로그인
-                let newUser = await User.create({ githubId: profile.id, username: profile.username, email: profile.email });
+                let newUser = await User.create({ githubId: profile.id, username, email });
                 console.log(newUser);
                 // return cb(err, newUser);
             }

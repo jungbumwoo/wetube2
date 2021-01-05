@@ -42,6 +42,11 @@ export const postSignup = async(req, res) => {
     }
 };
 
+export const logout = (req, res) => {
+    req.logout();
+    res.redirect("/");
+}
+
 export const facebookLoginCallback = async () => {
     
 };

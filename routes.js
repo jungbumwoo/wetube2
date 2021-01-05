@@ -1,5 +1,6 @@
 /*global*/
 const HOME = "/";
+const LOGOUT = "/logout";
 /*user*/
 const PROFILE = "/profile"
 const LOGIN = "/login"
@@ -15,5 +16,6 @@ export const route = {
     profile: PROFILE,
     login: LOGIN,
     login2: LOGIN2,
-    signup: SIGNUP
+    signup: SIGNUP,
+    logout: LOGOUT
 }

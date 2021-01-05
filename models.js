@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import passportLocalMongoose from "passport-local-mongoose";
 
 const userSchema = new mongoose.Schema({
-    _id: Number,
     username: String,
     email: String,
     password: String,
