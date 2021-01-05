@@ -2,16 +2,18 @@ import mongoose from "mongoose";
 import passportLocalMongoose from "passport-local-mongoose";
 
 const userSchema = new mongoose.Schema({
+    _id: Number,
     username: String,
+    email: String,
     password: String,
-    date: { type: Date, default: Date.now },
-    profile_img: String,
-    info: String
+    avatarUrl: String,
+    info: String,
+    facebookId: Number,
+    githubId: Number
 });
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.methods.comparePassword = function(inputPassword, cb) {
-    console.log(inputPassword);
     console.log(this.password);
     if (inputPassword === this.password) {
         cb(null, true);

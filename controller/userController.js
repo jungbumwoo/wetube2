@@ -41,3 +41,7 @@ export const postSignup = async(req, res) => {
         }
     }
 };
+
+export const facebookLoginCallback = async () => {
+    
+};
