@@ -43,6 +43,7 @@ export const localMiddleware = (req, res, next) => {
     next();
 };
 
+
 app.use(localMiddleware);
 
 app.set('view engine', 'pug');
