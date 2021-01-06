@@ -37,16 +37,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
 export const localMiddleware = (req, res, next) => {
-    res.locals.user = req.user;
+    res.locals.loggedUser = req.user || null;
     res.locals.route = route;
     next();
 };
 
 app.use(localMiddleware);
-
 
 app.set('view engine', 'pug');
 
@@ -63,7 +60,6 @@ MongoClient.connect(url, function(err, db) {
 
 app.use(route.home, globalRouter);
 app.use(route.user, userRouter);
-
 
 app.listen(PORT, () => {
     console.log(`✅ app listening at http://localhost:${PORT}`);

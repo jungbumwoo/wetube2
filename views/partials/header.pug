@@ -4,12 +4,14 @@ header
         a(href="/") Wetube
     .header__column
         ul
-            if (!user)
+            if (!loggedUser)
                 li
-                    a(href="") SingIn
+                    a(href="/user/login") SingIn
                 li
                     a(href="")
             else
+                li
+                    p #{loggedUser.username}
                 li
                     a(href="") Profile
                 li
