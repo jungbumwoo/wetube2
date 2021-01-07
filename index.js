@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import mongoose from "mongoose";
+import path from "path";
 import passport from "passport";
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -26,6 +27,7 @@ app.use(bodyParser.json())
 
 app.use(cookieParser());
 app.use(helmet());
+app.use("/static", express.static(path.join(__dirname, "static")));
 
 app.use(session({
     secret: process.env.MONGOSTORE_COOKIE,
