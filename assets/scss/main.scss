@@ -3,5 +3,12 @@ html, body {
 }
 
 body {
-    background-color: bisque;
+    background-color: #f5f5f5;
+    color: $black;
+}
+
+button {
+    border: none;
+    background-color: #3498db;
+    color: white;
 }

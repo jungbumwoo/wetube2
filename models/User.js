@@ -8,7 +8,19 @@ const userSchema = new mongoose.Schema({
     avatarUrl: String,
     info: String,
     facebookId: Number,
-    githubId: Number
+    githubId: Number,
+    videos: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Video"
+        }
+    ],
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ]
 });
 
 userSchema.plugin(passportLocalMongoose);

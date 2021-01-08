@@ -2,8 +2,7 @@ import dotenv from "dotenv";
 import passport from "passport";
 import FacebookStrategy from "passport-facebook";
 const GitHubStrategy = require('passport-github').Strategy;
-const LocalStrategy = require('passport-local').Strategy;
-import User from "./models";
+import User from "./models/User";
 dotenv.config();
 
 
@@ -15,8 +14,6 @@ passport.use(new FacebookStrategy({
     callbackURL: process.env.FACEBOOK_CALLBACK_URL
     },
     async function(accessToken, refreshToken, profile, cb) {
-        console.log('passport.js 18');
-        console.log(profile);
         let { _json : { name, id }} = profile;
         try {
             let isUser = await User.findOne({ facebookId: id});
