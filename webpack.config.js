@@ -1,5 +1,5 @@
 const path = require('path');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const MODE = process.env.WEBPACK_ENV;
 
 module.exports = {
@@ -9,6 +9,7 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'static'),
     },
+    plugins: [new MiniCssExtractPlugin()],
     module: {
         rules: [
             {
@@ -25,9 +26,17 @@ module.exports = {
                 test: /\.s[ac]ss$/i,
                 use: [
                     // Create `style` nodes from JS strings
-                    "style-loader",
+                    
                     // Translate CSS into CommonJS
-                    "css-loader",
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: "css-loader",
+                    },
+                    {
+                        loader: "postcss-loader",
+                    },
                     {   // Compiles Sass to Css
                         loader: "sass-loader",
                         options: {
@@ -38,4 +47,4 @@ module.exports = {
             }
         ]
     }
-};
+}; 
