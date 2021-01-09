@@ -1,7 +1,7 @@
 import express from "express";
 import passport from "passport";
 import { route } from "../routes";
-import { login, login2,
+import { login, upload, login2,
     signup, 
     postSignup, 
     postLogin, postLogin2 } from "../controller/userController";
@@ -16,10 +16,10 @@ userRouter.post(route.login, passport.authenticate('local', { failureRedirect: '
     }
 );
 
-userRouter.get(route.login2, login2);
-userRouter.post(route.login2, postLogin2);
-
 userRouter.get(route.signup, signup);
 userRouter.post(route.signup, postSignup);
+
+userRouter.get(route.upload, upload);
+
 
 export default userRouter;

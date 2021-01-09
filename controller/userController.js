@@ -12,14 +12,6 @@ export const postLogin = (req, res) => {
 
 };
 
-export const login2 = (req, res) => {
-    res.render("login2");
-};
-
-export const postLogin2 = (req, res) => {
-    console.log("postLogin2");
-}
-
 export const signup = (req, res) => {
     res.render("signup");
 };
@@ -41,6 +33,10 @@ export const postSignup = async(req, res) => {
         }
     }
 };
+
+export const upload = (req, res) => {
+    console.log("upload at userControl");
+}
 
 export const logout = (req, res) => {
     req.logout();
