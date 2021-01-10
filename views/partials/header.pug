@@ -1,19 +1,25 @@
 header.header
-    .header__column
-        a(href=route.home)
-            
-    .header__column
-    .header__column
-        ul
-            if (!loggedUser)
-                li
-                    a(href="/user/login") SingIn
-                li
-                    a(href="")
-            else
-                li
-                    p #{loggedUser.username}
-                li
-                    a(href=route.userDetail(loggedUser.id)) Profile
-                li
-                    a(href=route.logout) Logout
+    .header__wrapper
+        .header__column
+            a(href=route.home)
+            i.fa.fa-youtube-play
+        .header__column
+            form(action="" method="")
+                input(type="text" id="searchingId" name="searching")
+                button(type="submit")
+                    i.fas.fa-search   
+        .header__column
+            ul
+                if (!loggedUser)
+                    li
+                        a(href="/user/login") SingIn
+                    li
+                        a(href="")
+                else
+                    li
+                        p #{loggedUser.username}
+                    li
+                        a(href=route.userDetail(loggedUser.id)) Profile
+                    li
+                        a(href=route.logout) Logout
+    

@@ -34,11 +34,7 @@ const config = {
               postcssOptions: {
                 plugins: [
                   [
-                    'autoprefixer',
-                    {
-                      //options
-                      browsers: "cover 99.5%"
-                    },
+                    'autoprefixer'
                   ]
                 ]
               }

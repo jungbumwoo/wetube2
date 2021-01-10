@@ -1,12 +1,15 @@
-header {
+.header {
     background-color: $red;
-    
-
-    a {
-        color: $grey;
-    }
-
-    h3 {
-        font-size: 1.5rem;
+    margin-bottom: 3rem;
+    .header__wrapper {
+        i {
+            color: $grey;
+        }
+        a {
+            color: $grey;
+        }
+        h3 {
+            font-size: 1.5rem;
+        }
     }
 }
