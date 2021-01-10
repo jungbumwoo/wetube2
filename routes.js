@@ -21,5 +21,13 @@ export const route = {
     login2: LOGIN2,
     signup: SIGNUP,
     logout: LOGOUT,
-    upload: UPLOAD
+    upload: UPLOAD,
+    userDetail: (id) => {
+        if (id) {
+            return `/userdetail/${id}`
+        } else {
+            return route.login
+        }
+    }
+    /*video*/
 }

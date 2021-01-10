@@ -38,6 +38,11 @@ export const upload = (req, res) => {
     console.log("upload at userControl");
 }
 
+export const userDetail = (req, res) => {
+    console.log(req);
+    res.render("userDetail");
+}
+
 export const logout = (req, res) => {
     req.logout();
     res.redirect("/");

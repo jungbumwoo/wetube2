@@ -1,7 +1,8 @@
-header
-    title Wetube
-    h3 
-        a(href="/") Wetube
+header.header
+    .header__column
+        a(href=route.home)
+            
+    .header__column
     .header__column
         ul
             if (!loggedUser)
@@ -13,6 +14,6 @@ header
                 li
                     p #{loggedUser.username}
                 li
-                    a(href="") Profile
+                    a(href=route.userDetail(loggedUser.id)) Profile
                 li
                     a(href=route.logout) Logout
