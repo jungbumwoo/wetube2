@@ -2,14 +2,61 @@
     background-color: $red;
     margin-bottom: 3rem;
     .header__wrapper {
-        i {
-            color: $grey;
-        }
-        a {
-            color: $grey;
-        }
-        h3 {
-            font-size: 1.5rem;
+        width: 100%;
+        padding: 0.3rem 0;
+        max-width: 75rem;
+        margin: 0 auto;
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        .header__column{
+            #icon {
+                color: white;
+                font-size: 2rem;
+            }
+            &:nth-child(2){
+                width: 100%;
+                justify-self: center;
+            }
+            &:last-child {
+                justify-self: end;
+            }
+            ul {
+                display: flex;
+                color: white;
+                font-weight: 600;
+                text-transform: uppercase;
+                li:not(:last-child){
+                    margin-right: 1rem;
+                }
+                a:visited {
+                    color: white;
+                }
+            }
+            form {
+                width: 100%;
+                display: flex;
+                input {
+                    width: 96%;
+                    padding: 0rem 0.5rem;
+                    border-radius: 0.2rem 0.05rem 0.05rem 0.2rem;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    max-width: none;
+                    &::placeholder {
+                        font-weight: 300;
+                        color: rgba(0, 0, 0, 0.7);
+                    }
+                }
+                button {
+                    border: #D3D3D3;
+                    width: 14%;
+                    padding: 0.35rem 0.625rem;
+                    i {
+                        color: #777777;
+                    }
+                }
+            }
         }
     }
 }

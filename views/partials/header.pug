@@ -2,19 +2,19 @@ header.header
     .header__wrapper
         .header__column
             a(href=route.home)
-            i.fa.fa-youtube-play
+                i.fab.fa-youtube(id ="icon")
         .header__column
-            form(action="" method="")
+            form(action=route.search, method="get")
                 input(type="text" id="searchingId" name="searching")
                 button(type="submit")
-                    i.fas.fa-search   
+                    i.fas.fa-search
         .header__column
             ul
                 if (!loggedUser)
                     li
-                        a(href="/user/login") SingIn
+                        a(href="") Join
                     li
-                        a(href="")
+                        a(href=`/user${route.login}`) SingIn
                 else
                     li
                         p #{loggedUser.username}

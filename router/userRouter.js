@@ -5,7 +5,6 @@ import { login, login2,
     signup, 
     postSignup, 
     upload,
-    userDetail,
     postLogin, postLogin2 } from "../controller/userController";
 
 
@@ -23,7 +22,6 @@ userRouter.post(route.signup, postSignup);
 
 userRouter.get(route.upload, upload);
 
-userRouter.get(route.userDetail, userDetail);
 
 
 export default userRouter;

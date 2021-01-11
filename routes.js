@@ -3,6 +3,7 @@ import { upload } from "./controller/userController";
 /*global*/
 const HOME = "/";
 const LOGOUT = "/logout";
+const SEARCH = "/search";
 /*user*/
 const PROFILE = "/profile"
 const LOGIN = "/login"
@@ -11,9 +12,13 @@ const USER = "/user"
 const SIGNUP = "/signup"
 const UPLOAD = "/upload"
 /**/
+
+
+
 export const route = {
     /*global*/
     home: HOME,
+    search: SEARCH,
     /*user*/
     user: USER,
     profile: PROFILE,
