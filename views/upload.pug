@@ -4,10 +4,10 @@ block content
     .form__wrapper
     form(action="/videos/upload" method="post" enctype="multipart/form-data")
         label(for="video") File :       
-        input(type="file" name="avatar")
+        input(type="file" name="video")
         label(for="title") Title :
-        input(type="text" id="title")
+        input(type="text" name="title")
         label(for="description") Description :
-        input(type="" id="description")
+        input(type="" name="description")
         button(type="submit") Upload
 
