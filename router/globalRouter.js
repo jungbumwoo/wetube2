@@ -8,7 +8,7 @@ const globalRouter = express.Router();
 
 globalRouter.get('/', home);
 
-globalRouter.get(route.userDetail, userDetail);
+globalRouter.get(route.userDetail(), userDetail);
 
 globalRouter.get(route.search, search);
 

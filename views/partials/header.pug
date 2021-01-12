@@ -1,7 +1,7 @@
 header.header
     .header__wrapper
         .header__column
-            a(href=route.home)
+            a(href= route.home)
                 i.fab.fa-youtube(id ="icon")
         .header__column
             form(action=route.search, method="get")
@@ -17,7 +17,7 @@ header.header
                         a(href=`/user${route.login}`) SingIn
                 else
                     li
-                        p #{loggedUser.username}
+                        a(href=`/videos${route.upload}`) Upload
                     li
                         a(href=route.userDetail(loggedUser.id)) Profile
                     li

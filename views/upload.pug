@@ -1,4 +1,13 @@
 extends layouts/index.pug
 
 block content
-    p Upload Video
+    .form__wrapper
+    form(action="/videos/upload" method="post" enctype="multipart/form-data")
+        label(for="video") File :       
+        input(type="file" name="avatar")
+        label(for="title") Title :
+        input(type="text" id="title")
+        label(for="description") Description :
+        input(type="" id="description")
+        button(type="submit") Upload
+

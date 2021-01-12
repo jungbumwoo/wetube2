@@ -1,9 +1,8 @@
-import { upload } from "./controller/userController";
-
 /*global*/
 const HOME = "/";
 const LOGOUT = "/logout";
 const SEARCH = "/search";
+const USER_DETAIL = "/:id";
 /*user*/
 const PROFILE = "/profile"
 const LOGIN = "/login"
@@ -11,10 +10,11 @@ const LOGIN2 = "/login2"
 const USER = "/user"
 const SIGNUP = "/signup"
 const UPLOAD = "/upload"
+/*videos*/
+const VIDEOS = "/videos"
+
+
 /**/
-
-
-
 export const route = {
     /*global*/
     home: HOME,
@@ -29,10 +29,12 @@ export const route = {
     upload: UPLOAD,
     userDetail: (id) => {
         if (id) {
-            return `/userdetail/${id}`
+            return `/${id}`
         } else {
-            return route.login
+            return USER_DETAIL;
         }
-    }
+    },
     /*video*/
+    videos: VIDEOS
+
 }

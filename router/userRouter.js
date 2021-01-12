@@ -8,7 +8,7 @@ import { login, login2,
     postLogin, postLogin2 } from "../controller/userController";
 
 
-const userRouter = express();
+const userRouter = express.Router();
 
 userRouter.get(route.login, login);
 userRouter.post(route.login, passport.authenticate('local', { failureRedirect: '/user/login'}),
@@ -20,7 +20,7 @@ userRouter.post(route.login, passport.authenticate('local', { failureRedirect: '
 userRouter.get(route.signup, signup);
 userRouter.post(route.signup, postSignup);
 
-userRouter.get(route.upload, upload);
+
 
 
 
