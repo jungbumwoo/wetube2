@@ -3,12 +3,13 @@ import passport from "passport";
 import { route } from "../routes"; 
 import { home, logout, userDetail } from "../controller/userController";
 import { search } from "../controller/videoController";
+import { onlyPrivate, onlyPublic } from "../middleware";
 
 const globalRouter = express.Router();
 
 globalRouter.get('/', home);
 
-globalRouter.get(route.userDetail(), userDetail);
+globalRouter.get(route.userDetail(), onlyPrivate, userDetail);
 
 globalRouter.get(route.search, search);
 
@@ -24,6 +25,6 @@ globalRouter.get('/auth/github/callback', passport.authenticate('github', { fail
         res.redirect('/');
 });
 
-globalRouter.get(route.logout, logout);
+globalRouter.get(route.logout, onlyPrivate, logout);
 
 export default globalRouter;

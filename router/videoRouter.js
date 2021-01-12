@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import { route } from "../routes";
 import { upload, postUpload } from "../controller/videoController";
+import { onlyPrivate, onlyPublic } from "../middleware";
 
 const multerUpload = multer({ dest: 'uploads/ '});
 
