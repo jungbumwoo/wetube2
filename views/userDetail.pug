@@ -1,7 +1,16 @@
 extends layouts/index.pug
 
 block content
-    p Avatar
-    p #{loggedUser.username}
-    p #{loggedUser.videos}
-    p #{comments}
+    p userDetail
+    .creator__videos
+        each item in creatorVideos
+            .videoBlock
+                a(href="123")
+                    video(src=`/${item.fileUrl}`)
+                    h4.videoBlock__title=item.title
+                a(href="sdf")
+                    h6.videoBlock__creator #{loggedUser.username}
+        else 
+            .empty
+                h4 No content yet.
+    

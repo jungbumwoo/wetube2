@@ -18,6 +18,7 @@ import globalRouter from "./router/globalRouter";
 import userRouter from "./router/userRouter";
 import videoRouter from "./router/videoRouter";
 import { route } from "./routes";
+import { experiments } from "webpack";
 
 
 dotenv.config();
@@ -32,7 +33,6 @@ app.use(bodyParser.json())
 
 app.use(cookieParser());
 app.use(helmet());
-app.use("/static", express.static(path.join(__dirname, "static")));
 
 app.use(session({
     secret: process.env.MONGOSTORE_COOKIE,
@@ -42,6 +42,9 @@ app.use(session({
 }));
 
 app.set('view engine', 'pug');
+app.use("/static", express.static(path.join(__dirname, "static")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 
 app.use(passport.initialize());
 app.use(passport.session());

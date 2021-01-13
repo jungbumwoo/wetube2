@@ -23,6 +23,8 @@ export const localMiddleware = (req, res, next) => {
 };
 
 export const onlyPrivate = (req, res, next) => {
+    console.log("onlyPrivate");
+    console.log(req.user);
     if (req.user) {
         next();
     } else {

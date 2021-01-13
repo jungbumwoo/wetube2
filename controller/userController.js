@@ -1,4 +1,5 @@
 import User from "../models/User";
+import Video from "../models/Video";
 
 export const home = (req, res) => {
     res.render("home");
@@ -24,7 +25,7 @@ export const postSignup = async(req, res) => {
         res.resdirect("/user/signup");
     } else {
         try {
-            let newUser = { username }
+            let newUser = { username };
             User.register(newUser, password);
             console.log("여기여기 try");
             res.redirect("/");
@@ -34,16 +35,21 @@ export const postSignup = async(req, res) => {
     }
 };
 
-
-
-export const userDetail = (req, res) => {
-    res.render("userDetail");
-}
+export const userDetail = async (req, res) => {
+    try {
+        let creatorVideos = await Video.find({creator: req.user.id});
+        res.render("userDetail", { creatorVideos });
+    } catch(err) {
+        console.log(err);
+        res.render("home");
+    };
+};
 
 export const logout = (req, res) => {
+    console.log("gonna LogOut at userController-logout");
     req.logout();
     res.redirect("/");
-}
+};
 
 export const facebookLoginCallback = async () => {
     

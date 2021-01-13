@@ -29,5 +29,4 @@ export const postUpload = async (req, res) => {
         console.log(err);
         res.render("home");
     };
-    res.render("userDetail");
 };

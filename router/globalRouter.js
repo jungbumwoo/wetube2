@@ -7,9 +7,7 @@ import { onlyPrivate, onlyPublic } from "../middleware";
 
 const globalRouter = express.Router();
 
-globalRouter.get('/', home);
-
-globalRouter.get(route.userDetail(), onlyPrivate, userDetail);
+globalRouter.get(route.home, home);
 
 globalRouter.get(route.search, search);
 
@@ -25,6 +23,8 @@ globalRouter.get('/auth/github/callback', passport.authenticate('github', { fail
         res.redirect('/');
 });
 
-globalRouter.get(route.logout, onlyPrivate, logout);
+globalRouter.get(route.logout, logout);
+/* userDetail() 얘를 위로 올리면 다른게 죽어버리고 여기로 다 가버리는듯? */
+globalRouter.get(route.userDetail(), onlyPrivate, userDetail);
 
 export default globalRouter;
