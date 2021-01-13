@@ -38,6 +38,7 @@ export const postSignup = async(req, res) => {
 export const profile = async (req, res) => {
     try {
         let creatorVideos = await Video.find({creator: req.user.id});
+        console.log(creatorVideos);
         res.render("profile", { creatorVideos });
     } catch(err) {
         console.log(err);
