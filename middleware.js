@@ -8,22 +8,12 @@ let videoStorage = multer.diskStorage({
     filename: function(req, file, cb) {
         cb(null, file.fieldname +  '-' + Date.now());
     }
-    /*
-    fileFilter: function(req, file, cb) {
-        
-        try {
-
-        } catch (err) {
-            cb(new Error('Multer Error'));
-        }
-    }
-    */
 })
 
-const multerUpload = multer({ storage: videoStorage });
+const multerUpload = multer({ storage: videoStorage, limits: {fileSize: 1024 * 1024 * 1024}});
 
 export const videoMulter = multerUpload.single('video');
-
+    
 
 export const localMiddleware = (req, res, next) => {
     res.locals.loggedUser = req.user || null;

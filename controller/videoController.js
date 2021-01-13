@@ -9,18 +9,25 @@ export const upload = (req, res) => {
 }
 
 export const postUpload = async (req, res) => {
-    console.log(req.body);
+    console.log("postUpload at videoController");
+    console.log(req.user);
     const { body : { title, description }} = req;
-    const { user : { username }} = req;
-    let uploadedVideo = {
-        title,
-        description
-    };
+    const { file } = req;
     try {
-        let newVideo = await Video.create(uploadedVideo);
+        let newVideo = await Video.create({
+            title,
+            description,
+            fileUrl: file.path,
+            creator: req.user.id
+        });
+        let newVIdeoId = newVideo.id;
+        req.user.videos.push(newVIdeoId);
+        req.user.save();
+        res.render("userDetail");
     } catch(err) {
+        console.log("postUpload Err at videoController");
         console.log(err);
         res.render("home");
-    }
+    };
     res.render("userDetail");
 };
