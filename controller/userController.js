@@ -10,7 +10,7 @@ export const login = (req, res) => {
 };
 
 export const postLogin = (req, res) => {
-
+    
 };
 
 export const signup = (req, res) => {
@@ -35,10 +35,10 @@ export const postSignup = async(req, res) => {
     }
 };
 
-export const userDetail = async (req, res) => {
+export const profile = async (req, res) => {
     try {
         let creatorVideos = await Video.find({creator: req.user.id});
-        res.render("userDetail", { creatorVideos });
+        res.render("profile", { creatorVideos });
     } catch(err) {
         console.log(err);
         res.render("home");
@@ -46,7 +46,6 @@ export const userDetail = async (req, res) => {
 };
 
 export const logout = (req, res) => {
-    console.log("gonna LogOut at userController-logout");
     req.logout();
     res.redirect("/");
 };

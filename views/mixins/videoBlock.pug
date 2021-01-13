@@ -1,3 +1,10 @@
 mixin videoBlock(video={})
     .videoBlock
-    
+        a(href=`/videos${route.videoDetail(video.id)}`)
+            video(src=`/${video.fileUrl}`)
+            h4.videoBlock__title=video.title
+        
+        
+        //- a(href="abc")
+            h6.videoBlock__creator=item.creator
+        

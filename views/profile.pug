@@ -1,13 +1,15 @@
 extends layouts/index.pug
+include mixins/videoBlock
 
 block content
-    p userDetail
+    p profile
     .creator__videos
         each item in creatorVideos
-            .videoBlock
-                a(href="123")
-                    video(src=`/${item.fileUrl}`)
-                    h4.videoBlock__title=item.title
+            +videoBlock(item={
+                id: item.id,
+                fileUrl: item.fileUrl,
+                title: item.title
+            })
                 a(href="sdf")
                     h6.videoBlock__creator #{loggedUser.username}
         else 

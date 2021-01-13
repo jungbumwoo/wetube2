@@ -24,7 +24,8 @@ globalRouter.get('/auth/github/callback', passport.authenticate('github', { fail
 });
 
 globalRouter.get(route.logout, logout);
-/* userDetail() 얘를 위로 올리면 다른게 죽어버리고 여기로 다 가버리는듯? */
+/* 
+userDetail() 얘를 위로 올리면 다른게 죽어버리고 여기로 다 가버리는듯? 
 globalRouter.get(route.userDetail(), onlyPrivate, userDetail);
-
+*/
 export default globalRouter;
