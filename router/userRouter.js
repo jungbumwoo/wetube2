@@ -1,7 +1,7 @@
 import express from "express";
 import passport from "passport";
 import { route } from "../routes";
-import { login, login2, profile,
+import { login, login2, me,
     signup, 
     postSignup, 
     upload,
@@ -18,7 +18,7 @@ userRouter.post(route.login, passport.authenticate('local', { failureRedirect: '
     }
 );
 
-userRouter.get(route.profile(), profile);
+userRouter.get(route.me, me);
 
 userRouter.get(route.signup, signup);
 userRouter.post(route.signup, postSignup);

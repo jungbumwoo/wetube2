@@ -1,5 +1,5 @@
 extends layouts/index.pug
+include mixins/videoBlock.pug
 
 block content
-    .detailVideo__container
-        video(src=`/${detailVideo.fileUrl}`)
+    +videoBlock(detailVideo)

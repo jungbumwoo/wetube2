@@ -4,9 +4,9 @@ const LOGOUT = "/logout";
 const SEARCH = "/search";
 const USER_DETAIL = "/:id";
 /*user*/
-const PROFILE = "/:id";
 const LOGIN = "/login"
 const LOGIN2 = "/login2"
+const ME = "/me"
 const USER = "/user"
 const SIGNUP = "/signup"
 const UPLOAD = "/upload"
@@ -22,18 +22,10 @@ export const route = {
     search: SEARCH,
     /*user*/
     user: USER,
-    profile: PROFILE,
     login: LOGIN,
     login2: LOGIN2,
-    signup: SIGNUP,
     logout: LOGOUT,
-    profile: (id) => {
-        if (id) {
-            return `/${id}`
-        } else {
-            return PROFILE;
-        }
-    },
+    me: ME,
     upload: UPLOAD,
     userDetail: (id) => {
         if (id) {
@@ -42,6 +34,7 @@ export const route = {
             return USER_DETAIL;
         }
     },
+    signup: SIGNUP,
     /*video*/
     videos: VIDEOS,
     videoDetail: (id) => {

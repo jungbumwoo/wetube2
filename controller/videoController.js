@@ -1,4 +1,5 @@
 import Video from "../models/Video";
+import { route } from "../routes";
 
 export const search = (req, res) => {
     console.log("search At videoController");
@@ -12,7 +13,7 @@ export const videoDetail = async(req, res) => {
     const { params: { _id } } = req;
     try {
         let detailVideo = await Video.findOne({id: _id});
-        console.log("detailVideo at videoController");
+        console.log("videoDetail at videoController");
         console.log(detailVideo);
         res.render("videoDetail", { detailVideo });    
     } catch(error) {
@@ -32,12 +33,12 @@ export const postUpload = async (req, res) => {
             title,
             description,
             fileUrl: file.path,
-            creator: req.user.id
+            creator: req.user._id
         });
         let newVIdeoId = newVideo.id;
         req.user.videos.push(newVIdeoId);
         req.user.save();
-        res.render("profile");
+        res.redirect(`/user${route.me}`);
     } catch(err) {
         console.log("postUpload Err at videoController");
         console.log(err);
