@@ -1,3 +1,19 @@
 .footer {
-    background-color: blanchedalmond;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .footer__icon{
+        color: rgba(0, 0, 0, 0.2);
+        font-size: 2.15rem;
+        margin-bottom: 1.25rem;
+    }
+    .footer__text{
+        color: rgba(0, 0, 0, 0.2);
+        font-weight: 800;
+        text-transform: uppercase;
+    }
 }

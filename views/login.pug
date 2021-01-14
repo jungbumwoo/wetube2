@@ -1,27 +1,13 @@
 extends layouts/index.pug
 
 block content
-    form(action="/user/login" method="post")
-        div(class="imgcontainer")
-        div(class="container")
-            label
-                b Username
-            input(type="text" placeholder="Enter Username" name="username" required)
-            label(for="password")
-                b Password
-            input(type="password" placeholder="Enter Password" name="password" required)
-            button(type="submit") Login
-                
-        div(class="container" style="background-color:#f1f1f1")
-            span(class="password") Forget
-                a(href="#") password?
-    button
-        a(href="/auth/facebook")
-            span
-                |Facebook Login
-    button
-        a(href="/auth/github")
-            span
-                |Github Login
+    .form-container
+        form(action="/user/login" method="post")
+            input(type="email", name="Email" placeholder="Email")
+            input(type="password" name="password" placeholder="Password")
+            input(type="submit" value="Log In")
+        
+        form(action=route.join method="post")
+            input(type="submit" value="Sign Up")
 
-    a(href="/user/signup") Sign Up
+        include partials/socialLogin

@@ -1,0 +1,27 @@
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+        width: 100%;
+        max-width: 20rem;
+        margin-bottom: 1.75rem;  
+        
+        input {
+            width: 100%;
+            padding-top: 0.6025rem;
+            padding-bottom: 0.6025rem;
+            box-shadow: 0 0.07rem 0.2rem rgba(0, 0, 0, 0.12), 0 0.07rem 0.15rem rgba(0, 0, 0, 0.24);
+            &:not(:last-child){
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: white;
+        }
+    }
+}

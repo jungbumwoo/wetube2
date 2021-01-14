@@ -12,7 +12,7 @@ header.header
             ul
                 if (!loggedUser)
                     li
-                        a(href="") Join
+                        a(href=route.signup) Join
                     li
                         a(href=`/user${route.login}`) SingIn
                 else
