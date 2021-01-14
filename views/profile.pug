@@ -5,27 +5,6 @@ block content
     .creator__videos
         each item in creatorVideos
             +videoBlock(item)
-                
         else 
             .empty
                 h4 No content yet.
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-//-{
-                id: item.id,
-                fileUrl: item.fileUrl,
-                title: item.title
-                creator: item.creator
-            }
