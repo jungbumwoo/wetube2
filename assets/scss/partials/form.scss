@@ -9,7 +9,8 @@
         max-width: 20rem;
         margin-bottom: 1.75rem;  
         
-        input {
+        input:not([type="file"]),
+        .fileUpload {
             width: 100%;
             padding-top: 0.6025rem;
             padding-bottom: 0.6025rem;
@@ -20,9 +21,25 @@
             }
         }
 
+        textarea {
+            margin-bottom: 1.6rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
         input[type="submit"] {
             background-color: #3498db;
             color: white;
+        }
+
+        a {
+            max-width: 20rem;
+            width: 100%;
+        }
+        .fileUpload {
+            label {
+                font-weight: 300;
+                margin-right: 0.6rem;
+            }
         }
     }
 }

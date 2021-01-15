@@ -1,13 +1,11 @@
 extends layouts/index.pug
 
 block content
-    .form__wrapper
-    form(action="/videos/upload" method="post" enctype="multipart/form-data")
-        label(for="video") File :       
-        input(type="file" name="video")
-        label(for="title") Title :
-        input(type="text" name="title")
-        label(for="description") Description :
-        input(type="" name="description")
-        button(type="submit") Upload
-
+    .form-container
+        form(action="/videos/upload", method="post", enctype="multipart/form-data")
+            div.fileUpload
+                label(for="file") Video File
+                input(type="file", id="file", name="videoFile", required=true, accept="video/*")
+            input(type="text", placeholder="Title", name="title", required=true)
+            textarea(name="description", placeholder="Description", required=true)
+            input(type="submit", value="Upload Video")

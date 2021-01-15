@@ -1,7 +1,9 @@
 extends layouts/index.pug
+include mixins/videoBlock
 
 block content
-    h1 Wetube: Upload you video!! 
-    p Hi. home by pug
-    a(href="/user/login") Login
-    p join     
+    .home-videos
+        each item in entireVideo
+            +videoBlock(item)
+            +videoBlock(item)
+            +videoBlock(item)

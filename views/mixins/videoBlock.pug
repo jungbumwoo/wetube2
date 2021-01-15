@@ -1,8 +1,12 @@
 mixin videoBlock(video={})
     .videoBlock
-        a(href=`/videos${route.videoDetail(video.id)}`)
+        a(href=`/videos${route.videoDetail(video._id)}`)
             video(src=`/${video.fileUrl}`)
             h4.videoBlock__title=video.title
+            if video.views = 1
+                h6.videoBlcok_views 1 view
+            else
+                h6.videoBlock__views #{video.views} views
         a(href="abcd")
             h6.videoBlock__creator=video.creator
         

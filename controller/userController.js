@@ -1,8 +1,14 @@
 import User from "../models/User";
 import Video from "../models/Video";
 
-export const home = (req, res) => {
-    res.render("home");
+export const home = async(req, res) => {
+    try {
+        let entireVideo = await Video.find({}).sort({ "_id": -1});
+        res.render("home", {entireVideo});
+    } catch(err) {
+        console.log(err);
+        res.render("home", { entireVideo: [] });
+    }
 };
 
 export const login = (req, res) => {
