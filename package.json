@@ -52,6 +52,9 @@
     "defaults"
   ],
   "nodemonConfig": {
-    "ignore": ["static/*", "assets/*"]
+    "ignore": [
+      "static/*",
+      "assets/*"
+    ]
   }
 }

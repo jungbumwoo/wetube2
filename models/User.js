@@ -2,8 +2,12 @@ import mongoose from "mongoose";
 import passportLocalMongoose from "passport-local-mongoose";
 
 const userSchema = new mongoose.Schema({
-    username: String,
-    email: String,
+    username: {
+        type: String, unique: true
+    },
+    email: {
+        type: String, unique: true
+    },
     password: String,
     avatarUrl: String,
     info: String,
@@ -23,7 +27,8 @@ const userSchema = new mongoose.Schema({
     ]
 });
 
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
+/*
 userSchema.methods.comparePassword = function(inputPassword, cb) {
     console.log(this.password);
     if (inputPassword === this.password) {
@@ -32,7 +37,7 @@ userSchema.methods.comparePassword = function(inputPassword, cb) {
         cb('error');
     }
 };
-
+*/
 const model = mongoose.model('User', userSchema);
 
 
