@@ -1,0 +1,9 @@
+.videoPlayer {
+    position: relative;
+    &:hover {
+        .videoPlayer__controls {
+            opacity: 1;
+        }
+    }
+    
+}

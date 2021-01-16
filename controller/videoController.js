@@ -13,12 +13,11 @@ export const videoDetail = async(req, res) => {
     const { params: { _id } } = req;
     try {
         let detailVideo = await Video.findOne({id: _id});
-        res.render("videoDetail", { detailVideo });    
+        res.render("videoDetail", { detailVideo });
     } catch(error) {
         console.log(error);
         res.redirect("/");
     }
-
 };
 
 export const postUpload = async (req, res) => {
