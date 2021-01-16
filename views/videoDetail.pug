@@ -1,13 +1,16 @@
 extends layouts/index.pug
+include mixins/videoPlayer
 
 block content
     .video-detail__container
-        .video__player
-            video(src=`/${detailVideo.fileUrl}`)
+        +videoPlayer({
+            src:detailVideo.fileUrl
+        })
         .video__info
-            if loggedUser && video.creator.id === loggedUser.id
-            a(href="")
-                button Edit Video
+            if loggedUser && detailVideo.creator._id == loggedUser.id 
+                a(href="123")
+                    button Edit Video
+            //-여기 두개 type 왜 다른겅미
             h5.video__title=detailVideo.title
             p.video__description=detailVideo.description
             if detailVideo.views === 1

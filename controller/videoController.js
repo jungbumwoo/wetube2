@@ -13,8 +13,6 @@ export const videoDetail = async(req, res) => {
     const { params: { _id } } = req;
     try {
         let detailVideo = await Video.findOne({id: _id});
-        console.log("videoDetail at videoController");
-        console.log(detailVideo);
         res.render("videoDetail", { detailVideo });    
     } catch(error) {
         console.log(error);

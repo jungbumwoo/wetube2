@@ -1,4 +1,4 @@
-mixin videoBlock(video={})
+mixin videoBlock(video)
     .videoBlock
         a(href=`/videos${route.videoDetail(video._id)}`)
             video(src=`/${video.fileUrl}`)

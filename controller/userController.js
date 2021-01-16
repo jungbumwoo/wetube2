@@ -42,8 +42,10 @@ export const postSignup = async(req, res) => {
 };
 
 export const me = async (req, res) => {
+    console.log("me");
+    console.log(req.user);
     try {
-        let creatorVideos = await Video.find({creator: req.user.id});
+        let creatorVideos = await Video.find({creator: req.user._id});
         /*
         Video.find({creator: req.user.id}).populate('creator').exec(
             function (err, video){
@@ -52,11 +54,12 @@ export const me = async (req, res) => {
                 console.log("me")
                 console.log(video.creator);
             }
-        );*/
+        );
+        */
         res.render("me", { creatorVideos });
     } catch(err) {
         console.log(err);
-        res.render("home");
+        res.redirect("/");
     };
 };
 

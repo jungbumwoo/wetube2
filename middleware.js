@@ -12,11 +12,11 @@ let videoStorage = multer.diskStorage({
 
 const multerUpload = multer({ storage: videoStorage, limits: {fileSize: 1024 * 1024 * 1024}});
 
-export const videoMulter = multerUpload.single('video');
+export const videoMulter = multerUpload.single('videoFile');
     
 
 export const localMiddleware = (req, res, next) => {
-    res.locals.loggedUser = req.user || {};
+    res.locals.loggedUser = req.user || null;
     res.locals.route = route;
     res.locals.siteName = "Wetube";
     next();
