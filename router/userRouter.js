@@ -9,13 +9,8 @@ import { onlyPrivate, onlyPublic } from "../middleware";
 
 const userRouter = express.Router();
 
-const isit = (req, res, next) => {
-    console.log("isit? userRouter");
-    next();
-}
-
 userRouter.get(route.login, onlyPublic, login);
-userRouter.post(route.login, postLogin);
+/* userRouter.post(route.login, postLogin); */
 
 userRouter.get(route.me, me);
 
