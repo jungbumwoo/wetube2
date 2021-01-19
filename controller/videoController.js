@@ -1,8 +1,21 @@
 import Video from "../models/Video";
 import { route } from "../routes";
 
-export const search = (req, res) => {
-    console.log("search At videoController");
+export const getSearch = async (req, res) => {
+    let { query: { term }} = req;
+    let searchedVideo = [];
+    try {
+        searchedVideo = await Video.find({
+            title: { $regex: term, $options: "i"}
+        });
+    } catch(err) {
+        console.log(err);
+    }
+    res.render("search", { pageTitle: "Search", term, searchedVideo})
+};
+
+export const postSearch = (req, res) => {
+    console.log(req);
 };
 
 export const upload = (req, res) => {
@@ -12,7 +25,9 @@ export const upload = (req, res) => {
 export const videoDetail = async(req, res) => {
     const { params: { _id } } = req;
     try {
-        let detailVideo = await Video.findOne({id: _id});
+        let detailVideo = await Video.findOne({id: _id}).populate("creator");
+        console.log('at videodetail');
+        console.log(detailVideo);
         res.render("videoDetail", { detailVideo });
     } catch(error) {
         console.log(error);

@@ -3,14 +3,12 @@ import passport from "passport";
 import { route } from "../routes"; 
 import { home, logout, userDetail,
     signup, postSignup } from "../controller/userController";
-import { search } from "../controller/videoController";
+import { getSearch, postSearch } from "../controller/videoController";
 import { onlyPrivate, onlyPublic } from "../middleware";
 
 const globalRouter = express.Router();
 
 globalRouter.get(route.home, home);
-
-globalRouter.get(route.search, search);
 
 globalRouter.get('/auth/facebook', passport.authenticate('facebook'));
 globalRouter.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/users/login'}),
@@ -25,6 +23,9 @@ globalRouter.get('/auth/github/callback', passport.authenticate('github', { fail
 });
 
 globalRouter.get(route.logout, logout);
+
+globalRouter.get(route.search, getSearch);
+globalRouter.post(route.search, postSearch);
 
 globalRouter.get(route.signup, signup);
 globalRouter.post(route.signup, postSignup);
