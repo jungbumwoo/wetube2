@@ -15,27 +15,23 @@ export const login = (req, res) => {
     res.render("login");
 };
 
-export const postLogin = (req, res) => {
-    
-};
-
 export const signup = (req, res) => {
     res.render("signup");
 };
 
 export const postSignup = async(req, res) => {
-    const { body : { username, password, password2 }} = req;
-    console.log(username, password, password2);
+    const { body : { username, email, password, password2 }} = req;
     if ( password != password2) {
         console.log("password and password2 is not correct");
-        res.resdirect("/user/signup");
+        res.render(route.signup);
     } else {
         try {
-            let newUser = { username };
+            let newUser = { username, email };
             User.register(newUser, password);
-            console.log("여기여기 try");
+            console.log("postSignup/userController try");
             res.redirect("/");
         } catch(err) {
+            console.log(err);
             res.redirect("/user/signup");
         }
     }

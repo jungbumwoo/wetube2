@@ -8,6 +8,26 @@ dotenv.config();
 
 passport.use(User.createStrategy());
 
+/*
+passport.use(new LocalStrategy(
+    function(email, password, done) {
+        User.findOne({ email }, function (err, user){
+            if (err) {
+                console.log(err); 
+                return done(err); }
+            if (!user) { return done(null, false, { message: '존재하지 않는 아이디입니다.'}); }
+            return user.comparePassword(password, (passError, isMatch) => {
+                if (isMatch) {
+                    console.log("isMatch is true here");
+                    return done(null, user);
+                }
+                console.log("isMatch is not true");
+                return done(null, false, { message : "incorrect password"});
+            });
+        });
+    }
+));
+*/
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
@@ -72,23 +92,5 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-/*
-passport.use(new LocalStrategy(
-    function(username, password, done) {
-        User.findOne({ username: username}, function (err, user){
-            console.log(user);
-            if (err) { return done(err); }
-            if (!user) { return done(null, false, { message: '존재하지 않는 아이디입니다.'}); }
-            return user.comparePassword(password, (passError, isMatch) => {
-                if (isMatch) {
-                    console.log("isMatch is true here");
-                    return done(null, user);
-                }
-                console.log("isMatch is not true");
-                return done(null, false, { message : "incorrect password"});
-            });
-        });
-    }
-));
- */
+
 
