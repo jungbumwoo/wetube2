@@ -19,6 +19,8 @@ globalRouter.get('/auth/facebook/callback', passport.authenticate('facebook', { 
 globalRouter.get('/auth/github', passport.authenticate('github'));
 globalRouter.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/users/login'}), 
     function (req, res) {
+        console.log(`globalRouter github callback`);
+        console.log(req.user);
         res.redirect('/');
 });
 

@@ -2,7 +2,10 @@ import mongoose, { mongo } from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-mongoose.connect(process.env.MONGOOSE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGOOSE_URL, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true,
+    useCreateIndex: true });
 
 
 const db = mongoose.connection;

@@ -3,10 +3,10 @@ import passportLocalMongoose from "passport-local-mongoose";
 
 const userSchema = new mongoose.Schema({
     username: {
-        type: String, unique: true
+        type: String
     },
     email: {
-        type: String, unique: true
+        type: String
     },
     password: String,
     avatarUrl: String,
@@ -26,8 +26,8 @@ const userSchema = new mongoose.Schema({
         }
     ]
 });
-
 userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
+
 /*
 userSchema.methods.comparePassword = function(inputPassword, cb) {
     console.log(this.password);
