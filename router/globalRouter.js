@@ -21,7 +21,7 @@ globalRouter.get('/auth/github/callback', passport.authenticate('github', { fail
     function (req, res) {
         console.log(`globalRouter github callback`);
         console.log(req.user);
-        res.redirect('/');
+        res.redirect(route.home);
 });
 
 globalRouter.get(route.logout, logout);
